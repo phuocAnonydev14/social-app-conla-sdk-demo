@@ -1,0 +1,62 @@
+{
+  "name": "aa-conla-social-sdk",
+  "version": "0.2.24",
+  "main": "./dist/src/index.js",
+  "license": "MIT",
+  "homepage": "https://github.com/phuocAnonydev14/bundler-custom/tree/main/packages",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/phuocAnonydev14/bundler-custom/tree/main/packages/sdk"
+  },
+  "files": [
+    "dist/src",
+    "src",
+    "README.md"
+  ],
+  "scripts": {
+    "clear": "rm -rf dist artifacts cache",
+    "lint": "eslint -f unix .",
+    "lint-fix": "eslint -f unix . --fix",
+    "test": "hardhat test",
+    "hardhat-test": "hardhat test",
+    "tsc": "tsc",
+    "watch-tsc": "tsc -w --preserveWatchOutput"
+  },
+  "dependencies": {
+    "@aws-amplify/auth": "^6.3.8",
+    "@aws-sdk/client-kms": "^3.614.0",
+    "@aws-sdk/credential-providers": "^3.617.0",
+    "@ethersproject/abstract-signer": "^5.7.0",
+    "@ethersproject/networks": "^5.7.0",
+    "@ethersproject/properties": "^5.7.0",
+    "@ethersproject/providers": "^5.7.0",
+    "@types/debug": "^4.1.7",
+    "aa-conla-utils": "^0.1.7",
+    "aws-amplify": "^6.4.0",
+    "axios": "^1.7.2",
+    "debug": "^4.3.4",
+    "ethers": "^5.7.0",
+    "jwt-decode": "^4.0.0",
+    "querystring": "^0.2.1"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-chai-matchers": "^1.0.3",
+    "@nomicfoundation/hardhat-toolbox": "^1.0.2",
+    "@nomiclabs/hardhat-ethers": "^2.0.0",
+    "@types/mocha": "^9.1.1",
+    "@typescript-eslint/eslint-plugin": "^5.33.0",
+    "@typescript-eslint/parser": "^5.33.0",
+    "chai": "^4.3.6",
+    "depcheck": "^1.4.3",
+    "eslint": "^8.21.0",
+    "eslint-config-standard-with-typescript": "^22.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.2.4",
+    "eslint-plugin-promise": "^6.0.0",
+    "hardhat": "^2.17.0",
+    "lerna": "^5.4.0",
+    "typescript": "^4.7.4",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
+  }
+}
