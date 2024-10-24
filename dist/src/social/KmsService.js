@@ -18,13 +18,12 @@ class KmsService {
             credentials,
         });
     }
-    ;
     async encryptPrivateKey(privateKey, idToken) {
         try {
             const client = await this.getKmsClient(idToken);
             const command = new client_kms_1.EncryptCommand({
                 KeyId: SocialConfig_1.KMS_KEY_ID,
-                Plaintext: Buffer.from(privateKey, "utf-8")
+                Plaintext: Buffer.from(privateKey, "utf-8"),
             });
             const privateKeyHashedRes = await client.send(command);
             // convert private key hash to hex string
@@ -35,24 +34,34 @@ class KmsService {
         }
         catch (e) {
             console.log(e);
+            throw e;
         }
     }
-    async decryptPrivateKey(privateKeyHashed, idToken) {
-        var _a;
+    async decryptPrivateKey(encryptedKeys, idToken) {
         try {
             const client = await this.getKmsClient(idToken);
-            const command = new client_kms_1.DecryptCommand({
-                CiphertextBlob: Buffer.from(privateKeyHashed, "hex"),
-            });
-            const data = await client.send(command); // Plaintext ascii returned
-            const asciiArray = ((_a = data.Plaintext) === null || _a === void 0 ? void 0 : _a.toString().split(",").map(Number)) || [];
-            const privateKeyOrigin = asciiArray
-                .map((code) => String.fromCharCode(code))
-                .join("");
-            return privateKeyOrigin;
+            const res = await Promise.all(encryptedKeys.map(async (key) => {
+                var _a;
+                const command = new client_kms_1.DecryptCommand({
+                    CiphertextBlob: Buffer.from(key.encryptedKey, "hex"),
+                });
+                const data = await client.send(command); // Plaintext ascii returned
+                const asciiArray = ((_a = data.Plaintext) === null || _a === void 0 ? void 0 : _a.toString().split(",").map(Number)) || [];
+                const privateKey = asciiArray
+                    .map((code) => String.fromCharCode(code))
+                    .join("");
+                return {
+                    id: key.id,
+                    name: key.name,
+                    privateKey,
+                    encryptedKey: key.encryptedKey,
+                };
+            }));
+            return res;
         }
         catch (e) {
             console.log(e);
+            throw e;
         }
     }
 }

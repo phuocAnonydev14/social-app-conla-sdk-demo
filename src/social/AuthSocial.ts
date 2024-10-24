@@ -19,6 +19,7 @@ export class AuthSocial {
       });
     } catch (e) {
       console.log(e);
+      throw e
     }
   };
 
@@ -27,6 +28,7 @@ export class AuthSocial {
       await signOut();
     } catch (e) {
       console.log(e);
+      throw e
     }
   };
 }

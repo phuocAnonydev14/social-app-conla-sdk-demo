@@ -30,6 +30,5 @@ Object.defineProperty(exports, "ERC4337EthersProvider", { enumerable: true, get:
 var HttpRpcClient_1 = require("./HttpRpcClient");
 Object.defineProperty(exports, "HttpRpcClient", { enumerable: true, get: function () { return HttpRpcClient_1.HttpRpcClient; } });
 __exportStar(require("./calcPreVerificationGas"), exports);
-__exportStar(require("./social/AppSocial"), exports);
-__exportStar(require("./social/SocialConfig"), exports);
+__exportStar(require("./social"), exports);
 //# sourceMappingURL=index.js.map

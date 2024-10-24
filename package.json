@@ -1,6 +1,6 @@
 {
   "name": "aa-conla-social-sdk",
-  "version": "0.2.24",
+  "version": "0.2.40",
   "main": "./dist/src/index.js",
   "license": "MIT",
   "homepage": "https://github.com/phuocAnonydev14/bundler-custom/tree/main/packages",

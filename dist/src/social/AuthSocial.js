@@ -12,6 +12,7 @@ class AuthSocial {
             }
             catch (e) {
                 console.log(e);
+                throw e;
             }
         };
         this.logout = async () => {
@@ -20,6 +21,7 @@ class AuthSocial {
             }
             catch (e) {
                 console.log(e);
+                throw e;
             }
         };
         this.redirectUri = redirectUri;

@@ -9,7 +9,7 @@ export class AppSocial {
 
 
   constructor(redirectSignedIn:  string, redirectSignedOut: string) {
-    const redirectUri = {
+    const redirectUri: SocialRedirectUri = {
       redirectSignedIn,
       redirectSignedOut
     }

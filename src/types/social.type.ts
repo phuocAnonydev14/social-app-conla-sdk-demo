@@ -1,6 +1,6 @@
 export interface Tokens {
-  idToken: string,
-  accessToken: string,
+  idToken: string;
+  accessToken: string;
 }
 
 export interface SocialRedirectUri {
@@ -8,10 +8,25 @@ export interface SocialRedirectUri {
   redirectSignedOut: string;
 }
 
-export interface UserSocial {
-  email : string,
-  id: string,
-  encryptedKey: string,
-  createdAt: string,
-  updatedAt: string,
+interface CommonSocialType {
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface UserSocialType extends CommonSocialType {
+  email: string;
+  id: string;
+  encryptedKey: EncryptedKey[];
+}
+
+export interface EncryptedKey extends CommonSocialType {
+  name: string;
+  id: string;
+  encryptedKey: string;
+}
+
+export interface PrivateKey {
+  privateKey: string;
+  encryptedKey: string;
+  name: string;
 }
